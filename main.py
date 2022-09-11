@@ -9,7 +9,9 @@ class Button:
     def __init__(self, number = "1", x_grid = 1, y_grid = 1, span = 1) -> None:
         self.number = number
         
-        if self.number == "C":
+        if self.number == "=":
+            command = self.evaluate
+        elif self.number == "C":
             command = self.clear
         else:
             command = self.func
@@ -31,6 +33,11 @@ class Button:
         
     def clear(self):
         display.display_clear()
+        
+    def evaluate(self):
+        global RESULT
+        RESULT = str(eval(RESULT))
+        display.display_config()
 
 class Display:
     def __init__(self) -> None:
