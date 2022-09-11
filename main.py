@@ -83,7 +83,7 @@ class Display:
 
 win = tk.Tk()
 win.title("Calculator")
-win.iconbitmap("imgs/icon.ico")
+win.iconbitmap("D:\\004-Programing\\Python\\calculators\\Basic Gui Calculator\\imgs\\icon.ico")
 
 dispaly_frame = tk.LabelFrame(win, bg = BG_COLOR)
 dispaly_frame.pack(fill=tk.BOTH)

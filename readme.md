@@ -4,7 +4,7 @@ Simple calculator app built using tkinter
 
 ## Built With
 * Tkinter
-
+* Pyinstaller
 
 ## No Styling
 <p align="center"> 
