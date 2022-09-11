@@ -8,6 +8,7 @@ class Button:
         self.number = number
         
         self.button = tk.Button( 
+            frame_button,
             text = number,
             font = ("Consolas", 14),
             padx=BUTTON_WIDTH,
@@ -16,9 +17,27 @@ class Button:
         self.button.grid(row=x_grid, column=y_grid, columnspan=span, padx = 1, pady = 1)
 
 
+class Display:
+    def __init__(self) -> None:
+        self.text_box = tk.Text(
+            dispaly_frame,
+            font = ("Consolas", 24),
+            width=1,
+            height = 2,
+            )
+        self.text_box.pack(fill=tk.BOTH)
+        
 win = tk.Tk()
 win.title("Calculator")
 win.iconbitmap("imgs/icon.ico")
+
+dispaly_frame = tk.LabelFrame(win)
+dispaly_frame.pack(fill=tk.BOTH)
+
+display = Display()
+
+frame_button = tk.LabelFrame(win)
+frame_button.pack(fill=tk.BOTH)
 
 button1 = Button("1", 3, 1)
 button2 = Button("2", 3, 2)
