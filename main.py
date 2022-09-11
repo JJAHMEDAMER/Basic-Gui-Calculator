@@ -3,6 +3,8 @@ import tkinter as tk
 BUTTON_WIDTH = 20
 BUTTON_HEIGHT = 17.5
 
+RESULT = ""
+
 class Button:
     def __init__(self, number = "1", x_grid = 1, y_grid = 1, span = 1) -> None:
         self.number = number
@@ -13,9 +15,14 @@ class Button:
             font = ("Consolas", 14),
             padx=BUTTON_WIDTH,
             pady=BUTTON_HEIGHT,
+            command=self.func
             )
         self.button.grid(row=x_grid, column=y_grid, columnspan=span, padx = 1, pady = 1)
-
+    
+    def func(self):
+        global RESULT
+        RESULT += self.number
+        display.display_config()
 
 class Display:
     def __init__(self) -> None:
@@ -26,6 +33,12 @@ class Display:
             height = 2,
             )
         self.text_box.pack(fill=tk.BOTH)
+        
+    def display_config(self):
+        global RESULT
+        self.text_box.delete(1.0, "end")
+        self.text_box.insert(1.0, RESULT)
+        
         
 win = tk.Tk()
 win.title("Calculator")
