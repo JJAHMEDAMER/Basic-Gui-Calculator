@@ -32,4 +32,18 @@ button7 = Button("7", 1, 1)
 button8 = Button("8", 1, 2)
 button9 = Button("9", 1, 3)
 
+decimal_button = Button(".", 4, 1)
+button0 = Button("0", 4, 2)
+clear_button = Button("C", 4, 3)
+
+plus_button = Button("+", 1, 4)
+minus_button = Button("-", 2, 4)
+mult_button = Button("*", 3, 4)
+divide_button = Button("/", 4, 4)
+
+equal_button = Button("=", 5,1, 2)
+bracket_left_button = Button("(", 5,3)
+bracket_right_button = Button(")", 5,4)
+
+
 win.mainloop()
