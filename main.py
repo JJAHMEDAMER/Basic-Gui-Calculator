@@ -9,13 +9,18 @@ class Button:
     def __init__(self, number = "1", x_grid = 1, y_grid = 1, span = 1) -> None:
         self.number = number
         
+        if self.number == "C":
+            command = self.clear
+        else:
+            command = self.func
+        
         self.button = tk.Button( 
             frame_button,
             text = number,
             font = ("Consolas", 14),
             padx=BUTTON_WIDTH,
             pady=BUTTON_HEIGHT,
-            command=self.func
+            command=command
             )
         self.button.grid(row=x_grid, column=y_grid, columnspan=span, padx = 1, pady = 1)
     
@@ -23,6 +28,9 @@ class Button:
         global RESULT
         RESULT += self.number
         display.display_config()
+        
+    def clear(self):
+        display.display_clear()
 
 class Display:
     def __init__(self) -> None:
@@ -38,6 +46,11 @@ class Display:
         global RESULT
         self.text_box.delete(1.0, "end")
         self.text_box.insert(1.0, RESULT)
+        
+    def display_clear(self):
+        global RESULT
+        RESULT = ""
+        self.text_box.delete(1.0, "end")
         
         
 win = tk.Tk()
